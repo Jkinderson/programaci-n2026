@@ -5,6 +5,8 @@ print("sedes registradas: ", len(sedes))
 print("primer sede: ", sedes[0]["nombre"])
 print("ventas de la primer sede:", sedes[0]["ventas"])
 print("\nANALISIS SEMANAL DE EMPRENDIMIENTOS")
+
+provincia = {}
 for sede in sedes:
     total = sum(sede["ventas"])
     porcentaje = (total / sede["meta"]) * 100
@@ -20,3 +22,5 @@ for sede in sedes:
     print(
         f"{sede['nombre']} | total: {total:,.2f} |"
         f"cumplimiento: {porcentaje:.2f}% | {clasificacion}")
+    provincia[sede["provincia"]] = provincia.get(sede["provincia"], 0) + 1
+print("distribución por provincias: ", provincia)
